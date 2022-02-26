@@ -10,7 +10,6 @@ number =''
 coinAPI = os.environ.get('COIN_MAKET_API')
 
 url ='https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
-# url = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 
 parameters={
     'slug':'',
@@ -41,7 +40,6 @@ def getCAP(number):
         response = session.get(url,params=parameters)
         Data = json.loads(response.text)['data'][number]['quote']['USD']['price']
         print(Data)
-        return Data
+        return round(Data,3)
     except:
         print("Error")
-
