@@ -19,7 +19,7 @@ async def ping(ctx):
     await ctx.send("Pong")
 
 @bot.command()
-async def hemlo(ctx):
+async def hello(ctx):
     await ctx.send("Hey {}".format(ctx.message.author.mention))
 
 @bot.command()
