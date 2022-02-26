@@ -24,7 +24,7 @@ async def hemlo(ctx):
 
 @bot.command()
 async def price(ctx, tikcerName):
-    price =response.getTicketPrice(tikcerName)
+    price = response.getTicketPrice(tikcerName)
     await ctx.send(price)
 
 try:

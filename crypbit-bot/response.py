@@ -10,6 +10,7 @@ number =''
 coinAPI = os.environ.get('COIN_MAKET_API')
 
 url ='https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
+# url = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 
 parameters={
     'slug':'',
@@ -25,18 +26,15 @@ session.headers.update(headers)
 def getTicketPrice (ticker):
     return evaluteTicker(ticker)
         
-
 def evaluteTicker(getSlugName):
 
-    if getSlugName == "btc":
-        parameters['slug'] = "bitcoin"
-        getCAP('1')
-    elif getSlugName == "eth":
-        parameters['slug'] = "ethereum"
-    elif getSlugName == "doge":
-        parameters['slug'] = "dogecoin"
+    slug = {'btc' : ['1', 'bitcoin'], 'eth':['1027', 'ethereum'], 'doge' : ['74','dogecoin']}
+    if getSlugName in slug:
+        parameters['slug'] = slug[getSlugName][1]
+        return getCAP(slug[getSlugName][0])
     else:
         print("ticker not found")
+
 
 def getCAP(number):
     try:
