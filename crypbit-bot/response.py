@@ -21,11 +21,13 @@ session = Session()
 session.headers.update(headers)
 
 def getTicketPrice (ticker):
+    ticker=ticker.lower()
     return evaluteTicker(ticker)
         
 def evaluteTicker(getSlugName):
 
-    slug = {'btc' : ['1', 'bitcoin'], 'eth':['1027', 'ethereum'], 'doge' : ['74','dogecoin']}
+    slug = {'btc' : ['1', 'bitcoin'], 'eth':['1027', 'ethereum'], 'doge' : ['74','dogecoin'], 'sol':['5426', 'solana'], 'bnb':['1839', 'bnb'], 'ltc':['2', 'litecoin'], 'dot':['6636', 'polkadot'], 'matic':['3890', 'polygon'], 'usdt':['825', 'tether'], 'xlm':['512', 'stellar']}
+
     if getSlugName in slug:
         parameters['slug'] = slug[getSlugName][1]
         return getCAP(slug[getSlugName][0])
@@ -36,8 +38,9 @@ def evaluteTicker(getSlugName):
 def getCAP(number):
     try:
         response = session.get(url,params=parameters)
-        Data = json.loads(response.text)['data'][number]['quote']['USD']['price']
-        print(Data)
-        return round(Data,3)
+        Data = json.loads(response.text)['data'][number]
+        name = Data['name']
+        price = Data['quote']['USD']['price']
+        return name, round(price,3)
     except:
         print("Error")
