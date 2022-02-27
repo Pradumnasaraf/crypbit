@@ -3,7 +3,7 @@ import os
 from discord.ext import commands
 import discord
 from dotenv import load_dotenv
-import response
+import response, info
 load_dotenv()
 
 TOKEN = os.environ.get('DISCORD_TOKEN')
@@ -24,8 +24,13 @@ async def hello(ctx):
 
 @bot.command()
 async def price(ctx, tikcerName):
-    price = response.getTicketPrice(tikcerName)
-    await ctx.send(price)
+    respondPrice = response.getTicketPrice(tikcerName)
+    await ctx.send(respondPrice)
+
+@bot.command()
+async def whatis(ctx, tickerName):
+    coinDesc = info.getCoinDesc(tickerName)
+    await ctx.send(coinDesc)
 
 try:
     bot.run(TOKEN)

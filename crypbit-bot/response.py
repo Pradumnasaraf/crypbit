@@ -4,8 +4,6 @@ import os
 import json
 from dotenv import load_dotenv
 load_dotenv()
-number =''
-
 
 coinAPI = os.environ.get('COIN_MAKET_API')
 
