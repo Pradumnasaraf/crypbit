@@ -21,6 +21,7 @@ session = Session()
 session.headers.update(headers)
 
 def getTicketPrice (ticker):
+    ticker=ticker.lower()
     return evaluteTicker(ticker)
         
 def evaluteTicker(getSlugName):
@@ -36,8 +37,9 @@ def evaluteTicker(getSlugName):
 def getCAP(number):
     try:
         response = session.get(url,params=parameters)
-        Data = json.loads(response.text)['data'][number]['quote']['USD']['price']
-        print(Data)
-        return round(Data,3)
+        Data = json.loads(response.text)['data'][number]
+        name = Data['name']
+        price = Data['quote']['USD']['price']
+        return name, round(price,3)
     except:
         print("Error")
