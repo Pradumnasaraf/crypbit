@@ -1,7 +1,4 @@
-from json import load
 import os
-from pydoc import describe
-from turtle import color, title
 from discord.ext import commands
 import discord
 from dotenv import load_dotenv
