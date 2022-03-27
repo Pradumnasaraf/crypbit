@@ -19,21 +19,14 @@ headers ={
 
 session = Session()
 session.headers.update(headers)
+slug = {'btc' : ['1', 'bitcoin'], 'eth':['1027', 'ethereum'], 'doge' : ['74','dogecoin'], 'sol':['5426', 'solana'], 'bnb':['1839', 'bnb'], 'ltc':['2', 'litecoin'], 'dot':['6636', 'polkadot'], 'matic':['3890', 'polygon'], 'usdt':['825', 'tether'], 'xlm':['512', 'stellar']}
 
 def getTicketPrice (ticker):
-    ticker=ticker.lower()
-    return evaluteTicker(ticker)
-        
-def evaluteTicker(getSlugName):
-
-    slug = {'btc' : ['1', 'bitcoin'], 'eth':['1027', 'ethereum'], 'doge' : ['74','dogecoin'], 'sol':['5426', 'solana'], 'bnb':['1839', 'bnb'], 'ltc':['2', 'litecoin'], 'dot':['6636', 'polkadot'], 'matic':['3890', 'polygon'], 'usdt':['825', 'tether'], 'xlm':['512', 'stellar']}
-
-    if getSlugName in slug:
-        parameters['slug'] = slug[getSlugName][1]
-        return getCAP(slug[getSlugName][0])
+    if ticker in slug:
+        parameters['slug'] = slug[ticker][1]
+        return getCAP(slug[ticker][0])
     else:
         print("ticker not found")
-
 
 def getCAP(number):
     try:

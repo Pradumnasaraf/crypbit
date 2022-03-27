@@ -1,3 +1,5 @@
 discord.py==1.7.3
+discord_buttons_plugin==0.1.2
+nltk==3.7
 python-dotenv==0.19.2
-requests==2.22.0
+requests==2.27.1
