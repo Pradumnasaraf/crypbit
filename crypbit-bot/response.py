@@ -3,8 +3,9 @@ import os
 import json
 from dotenv import load_dotenv
 import discord
-from nltk import tokenize
+import nltk
 load_dotenv()
+nltk.download('punkt')
 
 slug = {'btc' : ['1', 'bitcoin'], 'eth':['1027', 'ethereum'], 'doge' : ['74','dogecoin'], 'sol':['5426', 'solana'], 'bnb':['1839', 'bnb'], 'ltc':['2', 'litecoin'], 'dot':['6636', 'polkadot'], 'matic':['3890', 'polygon'], 'usdt':['825', 'tether'], 'xlm':['512', 'stellar']}
 
@@ -51,7 +52,7 @@ def getCoinDesc(tickerName):
         response = session.get(url,params=parameters)
         Data = json.loads(response.text)['data'][id]
         tickerDec =Data['description']
-        sentList = tokenize.sent_tokenize(tickerDec)
+        sentList = nltk.tokenize.sent_tokenize(tickerDec)
         tickerDec = " ".join(sentList[:-1])
 
         tickerTitle =Data['name']
