@@ -1,5 +1,8 @@
 discord.py==1.7.3
-discord_buttons_plugin==0.1.2
-nltk==3.7
-python-dotenv==0.19.2
-requests==2.27.1
+discord_py_slash_command==3.0.3
+nltk==3.6.1
+pandas_datareader==0.10.0
+plotly==5.6.0
+python-dotenv==0.20.0
+requests==2.22.0
+kaleido==0.2.1
