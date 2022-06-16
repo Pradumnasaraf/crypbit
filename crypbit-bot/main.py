@@ -24,18 +24,20 @@ async def crypbit(ctx):
     await ctx.send(embed=embed)
   
 @slash.slash(name ="price",description="get the latest ticker price")
-async def price(ctx, tikcername):
-    responseName, respondPrice = response.getTicketPrice(tikcername.lower())
-    embed = discord.Embed(title=f"Current value of {responseName}:", description=f"${respondPrice}",color=0x66acba)
+async def price(ctx, tikcer):
+    result = response.getTickerPrice(tikcer.upper())
+    tickerName, tickerPrice = result[0], result[1]
+    embed = discord.Embed(title=f"Current value of {tickerName}:", description=f"${tickerPrice}",color=0x66acba)
     await ctx.send(embed=embed)
 
 @slash.slash(name ="whatis",description="get description of any ticker.")
 async def whatis(ctx, tickername):
-    coinDesc, embed = response.sendDesc(tickername)
+    coinDesc = response.getCoinDesc(tickername.upper())
     button = [
         create_button(style=ButtonStyle.URL, label=f"{tickername} webpage", url=coinDesc[3])
     ]
     action_row = create_actionrow(*button)
+    embed = discord.Embed(title=coinDesc[1], description=coinDesc[0], color=0xFFFFFF).set_thumbnail(url=coinDesc[2])
     await ctx.send(embed=embed, components=[action_row])
 
 @bot.command()
