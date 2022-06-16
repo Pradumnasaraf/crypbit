@@ -6,7 +6,7 @@ import discord
 import nltk
 from pymongo import MongoClient
 load_dotenv()
-# nltk.download('punkt')
+nltk.download('punkt')
 
 mongo_connect = os.environ.get('MONGO_CONNECT')
 slug = {'btc' : ['1', 'bitcoin'], 'eth':['1027', 'ethereum'], 'doge' : ['74','dogecoin'], 'sol':['5426', 'solana'], 'bnb':['1839', 'bnb'], 'ltc':['2', 'litecoin'], 'dot':['6636', 'polkadot'], 'matic':['3890', 'polygon'], 'usdt':['825', 'tether'], 'xlm':['512', 'stellar']}
