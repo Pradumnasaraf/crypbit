@@ -7,3 +7,4 @@ pymongo==4.1.1
 python-dotenv==0.20.0
 requests==2.22.0
 kaleido==0.2.1
+dnspython==2.2.1
