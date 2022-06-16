@@ -3,6 +3,7 @@ discord_py_slash_command==3.0.3
 nltk==3.6.1
 pandas_datareader==0.10.0
 plotly==5.6.0
+pymongo==4.1.1
 python-dotenv==0.20.0
 requests==2.22.0
 kaleido==0.2.1
