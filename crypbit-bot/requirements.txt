@@ -1,8 +1,15 @@
-discord.py==1.7.3
+discord.py==2.0.1
 discord_py_slash_command==3.0.3
 nltk==3.6.1
 pandas_datareader==0.10.0
 plotly==5.6.0
+pymongo==4.1.1
+<<<<<<< HEAD
+python-dotenv==0.21.0
+requests==2.22.0
+=======
 python-dotenv==0.20.0
 requests==2.22.0
 kaleido==0.2.1
+dnspython==2.2.1
+>>>>>>> 00c294e7db81a95897d517f8c131482f6b1f4dca
